@@ -4,6 +4,11 @@
 // A3 -> (Lower) left slider
 // A4 -> Right most slider point
 
+// A8 -> Top right
+// A9 -> Bottom right
+// 0 -> Bottom left
+// 1 -> Tol left
+
 int iv1, iv2, iv3, iv4;
 int icv1, icv2, icv3, icv4; 
 int v1, v2, v3, v4;
@@ -33,47 +38,58 @@ void loop(){
   cv3 = touchRead(0);
   cv4 = touchRead(1);
 
-  if (v1 - iv1 > 500 || v2 - iv2 > 500)
-    Serial.print("1");
-  else
+  if (v1 - iv1 > 500){
+    if (v2 - iv2 > 500)
+      Serial.print("2");
+    else
+      Serial.print("1");
+  }
+  else if (v2 - iv2 > 500){
+    if (v3 - iv3 > 500)
+      Serial.print("4");
+    else
+      Serial.print("3"); 
+  }
+  else if (v3 - iv3 > 500){
+    if (v4 - iv4 > 500)
+      Serial.print("6");
+    else
+      Serial.print("5");     
+  }
+  else if (v4 - iv4 > 500)
+      Serial.print("7");
+  else 
     Serial.print("0");
 
   Serial.print("\t");
+//  Serial.print("HERE");
 
-  if (v3 - iv3 > 500 || v4 - iv4 > 500)
-    Serial.print("1");
+  if (cv1 - icv1 > 500){
+    if (cv2 - icv2 > 500)
+      Serial.print("2");
+    else
+      Serial.print("1");        
+  }
+  else if (cv2 - icv2 > 500){
+    if (cv3 - icv3 > 500)
+      Serial.print("4");
+    else
+      Serial.print("3");
+  }
+  else if (cv3 - icv3 > 500){
+    if (cv4 - icv4 > 500)
+      Serial.print("6");
+    else
+      Serial.print("5");
+  }
+  else if (cv4 - icv4 > 500){
+    if (cv1 - icv1 > 500)
+      Serial.print("8");
+    else
+      Serial.print("7");  
+  }
   else
     Serial.print("0");
-
-  Serial.print("\t");
-  
-  Serial.print((v1 - v2) * 1000 / (v1 + v2));
-  Serial.print("\t");
-  Serial.print((v3 - v4) * 1000 / (v3 + v4));
-  Serial.print("\t");
-
-  if (cv1 - icv1 > 500)
-    Serial.print("1");
-  else
-    Serial.print("0");
-  Serial.print("\t");
-
-  if (cv2 - icv2 > 500)
-    Serial.print("1");
-  else
-    Serial.print("0");
-  Serial.print("\t");
-
-  if (cv3 - icv3 > 500)
-    Serial.print("1");
-  else
-    Serial.print("0");
-  Serial.print("\t");
-
-  if (cv4 - icv4 > 500)
-    Serial.print("1");
-  else
-    Serial.print("0");
-  Serial.println();  
+  Serial.println();
   delay(200);
  }
