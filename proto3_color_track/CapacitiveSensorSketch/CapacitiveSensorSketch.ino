@@ -22,6 +22,9 @@ void loop()
     long start = millis();
     long total1 =  cs_4_2.capacitiveSensor(10);
 
-    Serial.println(total1);                  // print sensor output 1
-    delay(10);                             // arbitrary delay to limit data to serial port 
+    if (total1 > 25)
+      Serial.println("1");
+    else
+      Serial.println("0");// print sensor output 1
+    delay(50);                             // arbitrary delay to limit data to serial port 
 }

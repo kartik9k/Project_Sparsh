@@ -67,6 +67,8 @@ void loop(){
   if (cv1 - icv1 > 500){
     if (cv2 - icv2 > 500)
       Serial.print("2");
+    else if (cv4 - icv4 > 500)
+      Serial.print("8");  
     else
       Serial.print("1");        
   }

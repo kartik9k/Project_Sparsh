@@ -22,7 +22,7 @@ void loop(void)
   /* Get a new sensor event */
   sensors_event_t event;
   accel.getEvent(&event);
-  Serial.println(-event.acceleration.y);
+  Serial.println(event.acceleration.y);
 
 //  Serial.print("Y Raw: "); Serial.print(accel.raw.y); Serial.print("  ");
   

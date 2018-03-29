@@ -8,7 +8,7 @@ float angle1 = 0.0;
 float segLength = 150;
 
 void setup() {
-  myPort = new Serial(this, "COM4", 9600);
+  myPort = new Serial(this, "COM5", 9600);
   size(800, 600);
   //stroke(rgb)
   pic = loadImage("flick_drop.gif");
