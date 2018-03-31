@@ -14,7 +14,7 @@ void setup() {
 void draw() {
 
   while(myPort.available() > 0){  
-      image(pic, 0, 0);
+    image(pic, 0, 0);
     String val_y = myPort.readStringUntil('\t');
     String val_x = myPort.readStringUntil('\n');
     
