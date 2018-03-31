@@ -8,7 +8,7 @@ void setup() {
   size(800, 600);
   pic = loadImage("2d_tracl.gif");
   image(pic, 0, 0); 
-  fill(0);
+  fill(#FFB6C1);
 }
 
 void draw() {
