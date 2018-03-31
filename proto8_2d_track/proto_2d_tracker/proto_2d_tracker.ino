@@ -17,32 +17,67 @@ void loop() {
   v3 = touchRead(A3);
   v4 = touchRead(A4);
   v5 = touchRead(A5);
-  Serial.print(v1);
-  Serial.print("\t");
-  Serial.print(v2);
-  Serial.print("\t");
-  Serial.print(v3);
-  Serial.print("\t");
-  Serial.print(v4);
-  Serial.print("\t");
-  Serial.print(v5);
-  Serial.print("\n");
-//  if (v1 - init1 > 300)
-//    Serial.print("1");
-//  else if (v2 - init2 > 300)
-//    Serial.print("2");
-//  else if (v3 - init3 > 300)
-//    Serial.print("3");
-//  else 
-//    Serial.print("0");
-//  Serial.print("\t");
-//
-//  if (v4 - init4 > 800)
-//    Serial.println("1");
-//  else if (v5 - init5 > 800)
-//    Serial.println("2");
-//  else 
-//    Serial.println("0");
-//
+  if (v5 - init5 > 1000){
+    Serial.print("1");
+    Serial.print("\t");
+    float d1 = v1 - init1;
+    float d2 = v2 - init2;
+    float d3 = v3 - init3;
+    float maxi = 0;
+    if (d1 > d2)
+      maxi = d1;    
+    else
+      maxi = d2;  
+    
+    if (maxi < d3)
+      maxi = d3;
+
+    if (maxi < 170){
+      Serial.println("0");  
+    }
+
+    else if (maxi == d1)
+      Serial.println("1");
+
+    else if (maxi == d2)
+      Serial.println("2");
+
+    else if (maxi == d3)
+      Serial.println("3");  
+  }
+
+  else if (v4 - init4 > 1000){
+    Serial.print("2");
+    Serial.print("\t");
+    float d1 = v1 - init1;
+    float d2 = v2 - init2;
+    float d3 = v3 - init3;
+    float maxi = 0;
+    if (d1 > d2)
+      maxi = d1;    
+    else
+      maxi = d2;  
+    
+    if (maxi < d3)
+      maxi = d3;
+
+    if (maxi < 170){
+      Serial.println("0");  
+    }
+
+    else if (maxi == d1)
+      Serial.println("1");
+
+    else if (maxi == d2)
+      Serial.println("2");
+
+    else if (maxi == d3)
+      Serial.println("3");  
+  }
+  else{
+    Serial.print("0");
+    Serial.print("\t");
+    Serial.println("0");
+  }
   delay(200);
 }
