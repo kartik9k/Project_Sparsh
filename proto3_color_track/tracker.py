@@ -47,8 +47,8 @@ while True:
 		
 	
 	pts.appendleft(center)
-	# mask = np.full((768, 1366, 3), 255)
-	mask = frame
+	mask = np.full((768, 1366, 3), 255)
+	# mask = frame
 	for i in xrange(1, len(pts)):
 		if pts[i - 1] is None or pts[i] is None:
 			continue
