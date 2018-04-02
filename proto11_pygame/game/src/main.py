@@ -25,11 +25,11 @@ pygame.display.set_caption('Free Runner')
 
 gameMenu.start()
 time.sleep(sleepTime)
+prev = 0
+k = 0
         
 #Game Loop
 while True:
-
-
         events = pygame.event.get()
         for event in events:
                 if event.type == QUIT:
@@ -38,18 +38,19 @@ while True:
                         pygame.display.quit()
                         exit(0)
         keys=pygame.key.get_pressed()
+        read = ser.readline()
         
         if keys[K_LEFT]:
                 character.moveLeft()
         if keys[K_RIGHT]:
                 character.moveRight()
         if keys[K_SPACE]:
-                read = ser.readline()
                 if (read[0] == "2" or read[0] == "5" or read[0] == "8" or read[0] == "0"):
                         read = int(read[0])
                         print (read)
                         if read != 0:
-                                character.jump(gameMenu.mute, read)        
+                                character.jump(gameMenu.mute, read)   
+                                prev = read 
 
         if keys[K_DOWN]:
                 character.duck()

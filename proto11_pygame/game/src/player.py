@@ -43,6 +43,7 @@ class player(object):
                         self.velx -= self.accel
 
         def jump(self, mute, power):
+                print "Jumping: " + str(power)
                 self.jumpPower = power
                 if not self.inAir:
                         if not mute:
