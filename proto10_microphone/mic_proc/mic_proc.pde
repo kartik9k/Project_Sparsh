@@ -19,10 +19,11 @@ void draw() {
     String clr = myPort.readStringUntil('\n');
     if (clr != null){
       float clr_f = float(clr);
-        
-      dragSegment(0, mouseX, mouseY, clr_f);
-      for(int i=0; i<x.length-1; i++){
-        dragSegment(i+1, x[i], y[i], clr_f);
+      if (clr_f != 0){
+        dragSegment(0, mouseX, mouseY, clr_f);
+        for(int i=0; i<x.length-1; i++){
+          dragSegment(i+1, x[i], y[i], clr_f);
+        }
       }
     }
   }
@@ -43,11 +44,11 @@ void segment(float x, float y, float a, float clr) {
   translate(x, y);
   rotate(a);
   if (clr == 1)
-    stroke(#0000FF);
+    stroke(#FFFF00);
   else if (clr == 2)
+    stroke(#FFA500);
+  else if (clr == 3)
     stroke(#00FF00);
-  else
-    stroke(#FF0000);
   //print (clr);
   line(0, 0, segLength, 0);
   popMatrix();
