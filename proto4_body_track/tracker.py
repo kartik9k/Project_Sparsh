@@ -4,7 +4,7 @@ import argparse
 import imutils
 import cv2
 
-colors_to_track = [[(80, 100, 100), (100, 255, 255)], [(50, 100, 100), (70, 255, 255)]]
+colors_to_track = [[(80, 100, 100), (100, 255, 255)], [(50, 100, 100), (70, 255, 255)], [(0, 100, 100), (10, 255, 255)]]
 det_points = []
 
 for i in range(len(colors_to_track)):
@@ -51,6 +51,7 @@ while True:
 			thickness = int(np.sqrt(5 / float(i + 1)) * 2.5)
 			cv2.line(canvas, det_points[k][i - 1], det_points[k][i], (0, 0, 255), thickness)
 			cv2.line(canvas, (683, 300), det_points[k][i], (0, 0, 255), thickness)
+
 		cv2.imshow("Frame", canvas)
 
 	key = cv2.waitKey(1) & 0xFF
